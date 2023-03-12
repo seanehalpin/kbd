@@ -20,15 +20,15 @@
     }
 
     const R = function (x, y, time) {
-      return (Math.floor(150 + 64 * Math.cos((x * x - y * y) / 300 + time)))
+      return (Math.floor(200 + 64 * Math.cos((x * x - y * y) / 300 + time)))
     }
 
     const G = function (x, y, time) {
-      return (Math.floor(200 + 64 * Math.sin((x * x * Math.cos(time / 4) + y * y * Math.sin(time / 3)) / 300)))
+      return (Math.floor(10 + 64 * Math.sin((x * x * Math.cos(time / 4) + y * y * Math.sin(time / 3)) / 300)))
     }
 
     const B = function (x, y, time) {
-      return (Math.floor(100 + 64 * Math.sin(5 * Math.sin(time / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100)))
+      return (Math.floor(250 + 64 * Math.sin(5 * Math.sin(time / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100)))
     }
 
     const startAnimation = function () {
@@ -81,11 +81,26 @@
     left: 0;
     top: 0;
     z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background: url("/grid.svg") center center;
+      filter: saturate(2);
+      // filter: invert(1);
+    }
   }
 
   .canvas {
     width: 100vw;
-    height: 300px;
+    height: 600px;
+    // height: 50vh;
     position: absolute;
     z-index: 1;
     left: 0;
@@ -94,7 +109,8 @@
     top: 0;
     overflow: hidden;
     display: none;
-    opacity: 0.2;
+    // opacity: 0.2;
+    opacity: 0.7;
     filter: saturate(1);
 
     @include md {
@@ -104,7 +120,7 @@
     .mask {
       position: absolute;
       z-index: var(--zindex-2);
-      background: var(--color-gradient);
+      background: var(--color-gradient-dark);
       left: 0;
       top: 0;
       width: 100%;

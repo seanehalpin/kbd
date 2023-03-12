@@ -21,7 +21,7 @@
   --color-dark-100: #555;
   --color-blur: rgba(28, 28, 30, 0.8);
 
-  --color-violet: #DD59AF;
+  --color-violet: #f05efa;
 
   --color-gradient: linear-gradient(
     to bottom,
@@ -42,7 +42,9 @@
     hsla(0, 0%, 100%, 0.987) 90.5%,
     hsl(0, 0%, 100%) 100%
   );
-  
+
+  --color-gradient-dark: linear-gradient(180deg, rgba(34, 34, 34, 0) 0%, rgba(34, 34, 34, 0.0275783) 8.94%, rgba(34, 34, 34, 0.0637037) 16.29%, rgba(34, 34, 34, 0.107692) 22.31%, rgba(34, 34, 34, 0.15886) 27.26%, rgba(34, 34, 34, 0.216524) 31.4%, rgba(34, 34, 34, 0.28) 34.99%, rgba(34, 34, 34, 0.348604) 38.29%, rgba(34, 34, 34, 0.421652) 41.54%, rgba(34, 34, 34, 0.498462) 45.03%, rgba(34, 34, 34, 0.578348) 48.99%, rgba(34, 34, 34, 0.660627) 53.69%, rgba(34, 34, 34, 0.744615) 59.39%, rgba(34, 34, 34, 0.82963) 66.35%, rgba(34, 34, 34, 0.914986) 74.82%, #222222 85.07%);
+
   --14px: 0.875rem;
   --15px: 0.9375rem;
   --16px: 1rem;
@@ -85,16 +87,16 @@
 
   // tokens
 
-  --bg-primary: var(--color-white);
-  --bg-secondary: var(--color-light-100);
-  --bg-tertiary: var(--color-light-50);
-  --bg-hover: var(--color-light-200);
+  --bg-primary: var(--color-dark-400);
+  --bg-secondary: var(--color-dark-300);
+  --bg-tertiary: var(--color-dark-200);
+  --bg-hover: var(--color-dark-300);
   --bg-opaque: var(--color-blur);
   --bg-accent: var(--color-violet);
 
-  --text-primary: var(--color-dark-400);
-  --text-secondary: var(--color-dark-300);
-  --text-tertiary: var(--color-dark-200);
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-light-100);
+  --text-tertiary: var(--color-light-200);
   --text-accent: var(--color-violet);
 
   --text-shadow: var(--color-blur);

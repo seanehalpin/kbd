@@ -9,7 +9,7 @@
 <h1>Kbd.</h1>
 <div class="info">
   <div class="text-holder">
-    <p>Stylish, minimalist <kbd>kbd</kbd> tags for Svelte apps.</p>
+    <p>Stylish, minimalist <kbd>kbd</kbd> component for Svelte apps.</p>
     <p>
       Inspired by the elegant design of industry leaders and custom made mechanical keyboards.
     </p>
@@ -36,7 +36,7 @@
     }
   
     p {
-      color: var(--text-tertiary); 
+      color: var(--text-secondary); 
   
       & + & {
         margin-top: var(--spacing-xxs);
@@ -44,12 +44,17 @@
     }
   
     kbd {
-      border: 1px solid var(--color-light-200);
-      background: var(--color-light-50);
-      padding: 0 5px;
+      // border: 1px solid var(--color-light-200);
+      background: var(--bg-secondary);
+      padding: 2px 8px;
       border-radius: 4px;
-      box-shadow: inset 0 0 0 1px var(--color-white), 0 3px 5px 0 rgba(0,0,0,0.1);
+      box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1), 0 0 0 2px rgba(0,0,0,0.1);
+      // box-shadow: inset 0 0 0 1px var(--color-white), 0 3px 5px 0 rgba(0,0,0,0.1);
       color: var(--text-accent);
+      font-family: var(--systemFont);
+      font-size: var(--20px);
+      text-shadow: 0 1px rgba(0,0,0,1);
+      font-weight: 500;
     }
   
     button {
@@ -60,12 +65,14 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      cursor: copy;
+      // cursor: copy;
+      cursor: pointer;
       font-weight: 400;
       color: var(--text-primary);
       transition: all 0.2s ease-in-out;
       font-weight: 500;
       font-size: var(--18px);
+      box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1);
   
       &:hover {
         span {
@@ -109,6 +116,8 @@
       overflow: hidden;
       position: relative;
       overflow: hidden;
+      border-radius: 30px;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
   
       &:before {
         content: "";
@@ -119,7 +128,7 @@
         height: 120%;
         left: 0;
         top: -10%;
-        opacity: 1;
+        opacity: 0.2;
         filter: blur(4px);
         transform: translate(-70px) skew(-15deg);
         z-index: 20;

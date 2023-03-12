@@ -30,10 +30,12 @@
   background: var(--bg-accent);
   color: var(--bg-primary);
   position: fixed;
-  left: 0;
-  top: 0;
+  left: 16px;
+  top: 16px;
+  border-radius: 8px;
   padding: 5px 10px;
   font-weight: 500;
+  z-index: 9999999;
 }
 
 </style>
