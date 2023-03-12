@@ -1,0 +1,50 @@
+$screen-sm-min: 544px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-window: 1250px;
+$screen-xl-min: 1600px;
+
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+@mixin window {
+  @media (min-width: #{$screen-window}) {
+    @content;
+  }
+}
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin focus {
+  &:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--bg-accent) !important;
+  }
+  &:active {
+    box-shadow: none !important;
+  }
+}
+@mixin dm {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}

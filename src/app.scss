@@ -1,0 +1,158 @@
+@import "mixins";
+
+:root {
+  --systemFont: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+
+  --color-white: #fff;
+  --color-white100: rgba(255, 255, 255, 0.1);
+  --color-white200: rgba(255, 255, 255, 0.2);
+  --color-white300: rgba(255, 255, 255, 0.3);
+  --color-white400: rgba(255, 255, 255, 0.4);
+  --color-white500: rgba(255, 255, 255, 0.5);
+
+  --color-light-300: #777;
+  --color-light-200: #aaa;
+  --color-light-100: #EBEBEB;
+  --color-light-50: #FAFAFA;
+    
+  --color-dark-400: #222;
+  --color-dark-300: #333;
+  --color-dark-200: #444;
+  --color-dark-100: #555;
+  --color-blur: rgba(28, 28, 30, 0.8);
+
+  --color-violet: #DD59AF;
+
+  --color-gradient: linear-gradient(
+    to bottom,
+    hsla(0, 0%, 100%, 0) 0%,
+    hsla(0, 0%, 100%, 0.013) 9.7%,
+    hsla(0, 0%, 100%, 0.049) 18.1%,
+    hsla(0, 0%, 100%, 0.104) 25.5%,
+    hsla(0, 0%, 100%, 0.175) 31.9%,
+    hsla(0, 0%, 100%, 0.259) 37.7%,
+    hsla(0, 0%, 100%, 0.352) 43%,
+    hsla(0, 0%, 100%, 0.45) 47.9%,
+    hsla(0, 0%, 100%, 0.55) 52.8%,
+    hsla(0, 0%, 100%, 0.648) 57.7%,
+    hsla(0, 0%, 100%, 0.741) 63%,
+    hsla(0, 0%, 100%, 0.825) 68.7%,
+    hsla(0, 0%, 100%, 0.896) 75%,
+    hsla(0, 0%, 100%, 0.951) 82.2%,
+    hsla(0, 0%, 100%, 0.987) 90.5%,
+    hsl(0, 0%, 100%) 100%
+  );
+  
+  --14px: 0.875rem;
+  --15px: 0.9375rem;
+  --16px: 1rem;
+  --17px: 1.0625rem;
+  --18px: 1.125rem;
+  --19px: 1.1875rem;
+  --20px: 1.25rem;
+  --21px: 1.3125rem;
+  --24px: 1.5rem;
+  --42px: 2.652rem;
+  --64px: 4rem;
+
+  --font-mini: calc(var(--14px) - 2px);
+  --font-sm: var(--14px);
+  --font-sd: var(--15px);
+  --font-lg: var(--16px);
+  --font-xl: var(--18px);
+  --font-xxl: var(--21px);
+  --font-headline: clamp(var(--64px), var(--24px) + 4.898vw, calc(var(--64px) * 2));
+  --font-body: clamp(1rem, 0.8852rem + 0.4898vw, 1.375rem);
+
+  --zindex-modal: 999999;
+  --zindex-nav: 1000;
+  --zindex-content: 500;
+  --zindex-1: 1;
+  --zindex-2: 2;
+
+  --radius-base: 12px;
+  --radius-sm: 8px;
+
+  --width: 800px;
+
+  --spacing-xxl: max( 130px, calc(130px + (260 - 130) * ((100vw - 375px) / (1600 - 375))) );
+  --spacing-xl: max( var(--64px), calc(var(--64px) + (128 - 64) * ((100vw - 375px) / (1600 - 375))) );
+  --spacing-l: max( var(--42px), calc(var(--42px) + (84 - 42) * ((100vw - 375px) / (1600 - 375))) );
+  --spacing-m: max( var(--24px), calc(var(--24px) + (48 - 24) * ((100vw - 375px) / (1600 - 375))) );
+  --spacing-s: max( var(--21px), calc(var(--21px) + (42 - 21) * ((100vw - 375px) / (1600 - 375))) );
+  --spacing-xs: max( var(--14px), calc(var(--14px) + (28 - 14) * ((100vw - 375px) / (1600 - 375))) );
+  --spacing-xxs: max( calc(var(--14px) / 2), calc((var(--14px) / 2) + (14 - 7) * ((100vw - 375px) / (1600 - 375))) );
+
+  // tokens
+
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-light-100);
+  --bg-tertiary: var(--color-light-50);
+  --bg-hover: var(--color-light-200);
+  --bg-opaque: var(--color-blur);
+  --bg-accent: var(--color-violet);
+
+  --text-primary: var(--color-dark-400);
+  --text-secondary: var(--color-dark-300);
+  --text-tertiary: var(--color-dark-200);
+  --text-accent: var(--color-violet);
+
+  --text-shadow: var(--color-blur);
+  
+}
+
+body, html {
+  font-family: var(--systemFont);
+  font-size: var(--font-sd);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "liga" on;
+  font-feature-settings: "liga" on;
+  -moz-font-feature-settings: "liga" on;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--systemFont);
+  font-weight: normal;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: var(--font-headline);
+  line-height: 1.1;
+  letter-spacing: -4px;
+}
+
+p {
+  font-size: var(--font-body);
+}
+
+.util-center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a, button {
+  &:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--bg-accent) !important;
+  }
+  &:active {
+    box-shadow: none !important;
+  }
+}
+
+.fixed {
+  overflow: hidden;
+  // height: 100vh;
+  // width: 100vw;
+}
