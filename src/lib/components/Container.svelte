@@ -1,8 +1,10 @@
 <script lang="ts">
   
+  export let sticky = false
+
 </script>
 
-<section class="container">
+<section class="container" class:sticky={sticky}>
   <div class="content">
     <slot />
   </div>
@@ -16,6 +18,16 @@
     padding: 0 var(--16px);
     position: relative;
     z-index: var(--zindex-content);
+
+    &.sticky {
+      position: sticky;
+      position: -webkit-sticky;
+      --_left: var(--left, 0);
+      left: var(--_left);
+      --_top: var(--top, 0);
+      top: var(--_top);
+      z-index: var(--zindex-sticky);
+    }
   }
 
   .content {

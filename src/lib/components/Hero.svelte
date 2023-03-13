@@ -3,18 +3,23 @@
   import { fade, fly, blur } from 'svelte/transition'
   import { onMount } from 'svelte'
 
+  let ready = false
+  onMount(() => {
+    ready = true
+  })
+
 </script>
 
-
-<h1>Kbd.</h1>
+{#if ready}
+<h1 in:fade={{duration:600, delay:200}}>Kbd.</h1>
 <div class="info">
   <div class="text-holder">
-    <p>Stylish, minimalist <kbd>kbd</kbd> component for Svelte apps.</p>
-    <p>
+    <p in:fade={{duration:600, delay:400}}>Stylish, minimalist <kbd>kbd</kbd> component for Svelte apps.</p>
+    <p in:fade={{duration:600, delay:600}}>
       Inspired by the elegant design of industry leaders and custom made mechanical keyboards.
     </p>
   </div>
-  <div class="button-holder-wrap">
+  <div class="button-holder-wrap" in:fade={{duration:600, delay:800}}>
     <div class="button-holder">
       <button>
         npm install kbd-svelte
@@ -25,6 +30,7 @@
     </div>
   </div>
 </div>
+{/if}
 
   <style lang="scss">
 
@@ -44,12 +50,10 @@
     }
   
     kbd {
-      // border: 1px solid var(--color-light-200);
       background: var(--bg-secondary);
       padding: 2px 8px;
       border-radius: 4px;
-      box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1), 0 0 0 2px rgba(0,0,0,0.1);
-      // box-shadow: inset 0 0 0 1px var(--color-white), 0 3px 5px 0 rgba(0,0,0,0.1);
+      box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1), 0 0 0 2px var(--bg-outline);
       color: var(--text-accent);
       font-family: var(--systemFont);
       font-size: var(--20px);
@@ -69,16 +73,30 @@
       cursor: pointer;
       font-weight: 400;
       color: var(--text-primary);
-      transition: all 0.2s ease-in-out;
+      transition: all 0.2s linear;
       font-weight: 500;
       font-size: var(--18px);
       box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1);
+      width: 100%;
+
+      @include md {
+        width: auto;
+      }
+
+      svg {
+        transition: all 0.4s ease-in-out;
+      }
   
       &:hover {
         span {
           opacity: 1;
-          background: var(--bg-primary);
+          background: var(--bg-secondary);
           // box-shadow: 0 0 0 2px var(--bg-tertiary);
+        }
+
+        svg {
+          stroke: var(--text-primary);
+          transform: translate3d(-2px, 0, 0);
         }
       }
   
@@ -91,7 +109,7 @@
         margin-left: auto;
         background: var(--bg-tertiary);
         border-radius: 50%;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.2s linear;
         opacity: 0.5;
       }
   
@@ -103,11 +121,18 @@
     .info {
       margin-top: var(--spacing-xs);
       display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap: var(--24px);
+
+      @include md {
+        flex-direction: row;
+      }
     }
   
     .text-holder {
       flex: 1;
-      padding: 8px var(--42px) 0 0;
+      padding: 8px 0 0 0;
     }
   
     .button-holder {
@@ -117,7 +142,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 30px;
-      box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+      box-shadow: 0 0 0 2px var(--bg-outline);
   
       &:before {
         content: "";

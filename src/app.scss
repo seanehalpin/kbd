@@ -19,7 +19,7 @@
   --color-dark-300: #333;
   --color-dark-200: #444;
   --color-dark-100: #555;
-  --color-blur: rgba(28, 28, 30, 0.8);
+  --color-black-10: rgba(0, 0, 0, 0.1);
 
   --color-violet: #f05efa;
 
@@ -68,6 +68,7 @@
 
   --zindex-modal: 999999;
   --zindex-nav: 1000;
+  --zindex-sticky: 900;
   --zindex-content: 500;
   --zindex-1: 1;
   --zindex-2: 2;
@@ -92,7 +93,9 @@
   --bg-tertiary: var(--color-dark-200);
   --bg-hover: var(--color-dark-300);
   --bg-opaque: var(--color-blur);
+  --bg-outline: var(--color-black-10);
   --bg-accent: var(--color-violet);
+
 
   --text-primary: var(--color-white);
   --text-secondary: var(--color-light-100);
@@ -110,7 +113,7 @@ body, html {
   background: var(--bg-primary);
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -143,10 +146,10 @@ p {
   align-items: center;
 }
 
-a, button {
+a, button, input {
   &:focus-visible {
     outline: none !important;
-    box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--bg-accent) !important;
+    box-shadow: 0 0 0 2px var(--bg-accent) !important;
   }
   &:active {
     box-shadow: none !important;

@@ -7,6 +7,7 @@
 
   // imprort dev
   import { dev } from '$app/environment';
+    import Search from '$lib/components/Search.svelte';
 
   let ready = false
   onMount(() => {
@@ -15,27 +16,42 @@
 
 </script>
 
+<svelte:head><title>KBD.</title></svelte:head>
+
+
 {#if ready}
-{#if dev}
-<div class="dev">dev mode</div>
-{/if}
-<Container>
-  <Hero />
-</Container>
+  {#if dev}
+    <div class="dev">dev mode</div>
+  {/if}
+  <Container>
+    <Hero />
+  </Container>
+  <Container sticky={true} --left="0" --top="0">
+    <Search />
+  </Container>
+  <div class="padded">
+    
+  </div>
 {/if}
 
 <style lang="scss">
 
-.dev {
-  background: var(--bg-accent);
-  color: var(--bg-primary);
-  position: fixed;
-  left: 16px;
-  top: 16px;
-  border-radius: 8px;
-  padding: 5px 10px;
-  font-weight: 500;
-  z-index: 9999999;
-}
+  .padded {
+    position: relative;
+    padding-bottom: 100vh;
+  }
+
+  .dev {
+    background: var(--bg-accent);
+    color: var(--bg-primary);
+    position: fixed;
+    left: 16px;
+    top: 16px;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-weight: 500;
+    z-index: 9999999;
+    pointer-events: none;
+  }
 
 </style>

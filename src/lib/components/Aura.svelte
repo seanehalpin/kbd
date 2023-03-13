@@ -50,15 +50,23 @@
     draw()
   }
 
+  let ready = false
+  onMount(() => {
+    ready = true
+  })
+
+
 </script>
 
 {#if show}
-<div class="canvas" in:fade={{duration: 250}}>
-  <div class="mask"></div>
-  <div class="canvas-holder">
-    <canvas id="canvas" width={width} height={height} use:init></canvas>
+  {#if ready}
+  <div class="canvas" in:fade={{duration: 1200, delay:200}}>
+    <div class="mask"></div>
+    <div class="canvas-holder">
+      <canvas id="canvas" width={width} height={height} use:init></canvas>
+    </div>
   </div>
-</div>
+  {/if}
 {/if}
 
 <style lang="scss">
@@ -112,6 +120,7 @@
     // opacity: 0.2;
     opacity: 0.7;
     filter: saturate(1);
+    pointer-events: none;
 
     @include md {
       display: block;
