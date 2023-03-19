@@ -1,0 +1,74 @@
+// custom stlyes
+
+.linear {
+  background: rgb(72, 72, 79);
+  padding: 4px 3px 4px 4px;
+  border-radius: 3px;
+  min-width: 20px;
+  font-size: 0.8125rem;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: capitalize;
+  color: rgb(215, 216, 219);
+  font-size: 11px;
+  line-height: 110%;
+  font-family: var(--interFont);
+}
+
+.arc {
+  background: #EEC5CD;
+  // font-family: var(--interFont);
+  color: #B70123;
+  font-size: 11px;
+  text-transform: capitalize;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px #C67081, inset 0 -2px 0 #C67081;
+  font-weight: 800;
+
+  span {
+    line-height: 20px;
+    top: -1px;
+  }
+
+  &.light {
+    min-width: 24px;
+    height: 24px;
+    background: linear-gradient(180deg, #F7F7F7 0%, #E0E0E0 100%);
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+    color: rgba(114, 114, 114, 1);
+    border-radius: 6px;
+
+    span {
+      line-height: 24px;
+    }
+
+    &:before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      z-index: 1;
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      border-radius: 4px;
+      background: #fff;
+    }
+  }
+}
+
+.scanner {
+  background: #64EB49;
+  padding: 4px 3px 4px 4px;
+  border-radius: 3px;
+  min-width: 20px;
+  font-size: 0.8125rem;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: capitalize;
+  color: #222222;
+  font-size: 11px;
+  line-height: 110%;
+  font-family: var(--interFont);
+}

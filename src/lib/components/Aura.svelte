@@ -89,6 +89,7 @@
     left: 0;
     top: 0;
     z-index: 1;
+    overflow: hidden;
 
     &::before {
       content: "";
@@ -99,7 +100,7 @@
       width: 100%;
       height: 100%;
       opacity: 0.1;
-      background: url("/grid.svg") center center;
+      // background: url("/grid.svg") center center;
       filter: saturate(2);
       // filter: invert(1);
     }

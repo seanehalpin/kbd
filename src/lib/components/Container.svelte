@@ -15,9 +15,13 @@
   .container {
     display: flex;
     flex-direction: column;
-    padding: 0 var(--16px);
     position: relative;
     z-index: var(--zindex-content);
+    width: 100%;
+    --_max-width: var(--max-width, 100%);
+    max-width: var(--_max-width);
+    --_padding: var(--padding, 0);
+    padding: 0 var(--_padding);
 
     &.sticky {
       position: sticky;
@@ -32,7 +36,7 @@
 
   .content {
     display: flex;
-    max-width: var(--width);
+    max-width: 100%;
     width: 100%;
     flex-direction: column;
     -webkit-box-orient: vertical;
