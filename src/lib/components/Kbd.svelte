@@ -14,7 +14,7 @@
 
   let activeStyle = styles[0]
 
-  $: console.log(activeStyle)
+  // $: console.log(activeStyle)
 
   let showStyles = false, showTitle = false
 
@@ -28,7 +28,7 @@
     showTitle = false
   }
 
-  const changeStyle = (value: any) => {
+  const changeStyle = (value: string) => {
     activeStyle = styles.find(style => style.style === value)
   }
 
@@ -55,25 +55,26 @@
         {/each}
       </div>
     </div>
+
     {#if showStyles}
-    {#if styles.length >= 2}
-    <div class="styles">
-      {#each styles as style, i}
-      <!-- <button style="background:{style.color}" in:fade={{duration:300, delay:i*150}} out:fade={{duration:200}}>
-        <span>{style.style}</span>
-      </button> -->
-      <input 
-        type="radio" 
-        class="radio"
-        name={title} 
-        value={style.style} 
-        checked={style.checked}
-        style="background:{style.color}" in:fade={{duration:300}} out:fade={{duration:200}} 
-        on:click={() => changeStyle(style.style)}
-        >
-      {/each}
-    </div>
-    {/if}
+      {#if styles.length >= 2}
+      <div class="styles">
+        {#each styles as style, i}
+        <!-- <button style="background:{style.color}" in:fade={{duration:300, delay:i*150}} out:fade={{duration:200}}>
+          <span>{style.style}</span>
+        </button> -->
+        <input 
+          type="radio" 
+          class="radio"
+          name={title} 
+          value={style.style} 
+          checked={style.checked}
+          style="background:{style.color}" in:fade={{duration:300}} out:fade={{duration:200}} 
+          on:click={() => changeStyle(style.style)}
+          >
+        {/each}
+      </div>
+      {/if}
     {/if}
   </div>
 {/if}
@@ -110,7 +111,8 @@
   }
 
   .kbd-content {
-    border: 1px solid var(--bg-tertiary);
+    // border: 1px solid var(--bg-secondary);
+    // box-shadow: inset 0 0 0 1px var(--bg-tertiary);
     height: 300px;
     border-radius: var(--radius-base);
     position: relative;
@@ -119,10 +121,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    --_background: var(--background, transparent);
+    --_background: var(--background, var(--bg-primary));
     background: var(--_background);
+    // background: hsla(0, 0%, 15%, 1);
     // box-shadow: inset 0 0 0 4px var(--bg-primary);
-    backdrop-filter: blur(10px);
+    // backdrop-filter: blur(10px);
   }
 
   kbd {
@@ -207,5 +210,6 @@
     // }
 
   }
+
 
 </style>
