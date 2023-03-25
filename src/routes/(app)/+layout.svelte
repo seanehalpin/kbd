@@ -2,7 +2,7 @@
 
   import Container from "$lib/components/Container.svelte"
   import Aura from "$lib/components/Aura.svelte"
-  import Hero from '$lib/components/Hero.svelte'
+  import Nav from '$lib/components/Nav.svelte'
 
   // import dev
   import { dev } from '$app/environment'
@@ -13,11 +13,9 @@
   <div class="dev">dev mode</div>
 {/if}
 
-<div class="grid">
+<div class="holder">
   <div class="info">
-    <Container --max-width="600px">
-      <Hero />
-    </Container>
+    <Nav />
   </div>
 
   <main>
@@ -43,24 +41,21 @@
     pointer-events: none;
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: var(--colwidth) 1fr;
+  .holder {
+    display: flex;
+    flex-direction: column;
+    // grid-template-columns: var(--colwidth) 1fr;
   }
 
   .info {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     position: relative;
-    max-height: 100vh;
-    overflow-y: scroll;
     z-index: var(--zindex-top);
-    align-items: center;
+    // align-items: center;
     // justify-content: center;
-    padding: 0 var(--16px);
-    background: var(--bg-primary);
-    backdrop-filter: blur(10px);
-    box-shadow: 1px 0 0 var(--bg-tertiary);
+    // background: var(--bg-primary);
+    // box-shadow: 1px 0 0 var(--bg-tertiary);
   }
 
   main {
@@ -70,6 +65,11 @@
     max-height: 100vh;
     position: relative;
     overflow-y: auto;
+    // margin: 0 var(--24px);
+    // padding: var(--24px);
+    // border-radius: 14px 14px 0 0;
+    background: var(--bg-base);
+    z-index: var(--zindex-top);
   }
 
 </style>

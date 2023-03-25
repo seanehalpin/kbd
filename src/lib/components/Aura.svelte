@@ -16,7 +16,7 @@
     
     const color = function (x, y, r, g, b) {
       ctx.fillStyle = `rgb(${r}, ${g}, ${b})`
-      ctx.fillRect(x, y, 5, 5);
+      ctx.fillRect(x, y, 100, 100);
     }
 
     const R = function (x, y, time) {
@@ -60,7 +60,7 @@
 
 {#if show}
   {#if ready}
-  <div class="canvas" in:fade={{duration: 1200, delay:200}}>
+  <div class="canvas" in:fade={{duration: 250, delay:200}}>
     <div class="mask"></div>
     <div class="canvas-holder">
       <canvas id="canvas" width={width} height={height} use:init></canvas>
@@ -80,6 +80,8 @@
     left: 0;
     top: 0;
     z-index: 1;
+    opacity: 0.7;
+    // filter: blur(200px);
   }
 
   .canvas-holder {
@@ -108,7 +110,7 @@
 
   .canvas {
     width: 100vw;
-    height: 600px;
+    height: 500px;
     // height: 50vh;
     position: absolute;
     z-index: 1;
@@ -119,22 +121,27 @@
     overflow: hidden;
     display: none;
     // opacity: 0.2;
-    opacity: 0.7;
+    opacity: 1;
     filter: saturate(1);
     pointer-events: none;
+    background: var(--color-dark-400);
 
     @include md {
       display: block;
     }
 
+    @include dm {
+      opacity: 0.7;
+    }
+
     .mask {
-      position: absolute;
-      z-index: var(--zindex-2);
-      background: var(--color-gradient-dark);
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
+      // position: absolute;
+      // z-index: var(--zindex-2);
+      // background: var(--color-gradient-dark);
+      // left: 0;
+      // top: 0;
+      // width: 100%;
+      // height: 100%;
     }
   }
 
